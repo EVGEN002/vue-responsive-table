@@ -1,0 +1,32 @@
+{
+  "name": "@evgen002/vue-responsive-table",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-responsive-table.umd.cjs",
+  "module": "./dist/vue-responsive-table.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-responsive-table.js",
+      "require": "./dist/vue-responsive-table.umd.js",
+      "default": "./dist/vue-responsive-table.min.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "sass": "^1.66.1",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.5",
+    "vite-plugin-libcss": "^1.1.1"
+  }
+}
