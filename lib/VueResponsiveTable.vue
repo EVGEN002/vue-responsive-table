@@ -19,13 +19,18 @@ const props = defineProps({
       <th class="table__th" v-for="th in dataProps">{{ th.thTitle }}</th>
     </thead>
     <tbody class="table__tbody">
-      <tr class="table__tr" v-for="row in rows">
+      <tr class="table__tr" v-for="row in rows" @click="$emit('onClickRow', row)">
         <td class="table__td" :data-title="cell.thTitle" v-for="cell in dataProps">
           <div class="table__td-list" v-if="cell.type === 'associativeList'">
             <div v-for="cellItem in cell.cellList">{{ cellItem.cellItemTitle }}: {{ row[cell.cellValue][cellItem.cellItemValue] }}</div>
           </div>
           <div class="table__td-list" v-else-if="cell.type === 'list'">
             <div v-for="cellItem in row[cell.cellValue]">{{ cellItem }}</div>
+          </div>
+          <div class="table__td-list" v-else-if="cell.type === 'objectList'">
+            <div v-for="object in row[cell.cellValue]">
+              {{ object[cell.objectKey] }}
+            </div>
           </div>
           <template v-else>
             {{ row[cell.cellValue] }}
