@@ -32,6 +32,14 @@ const props = defineProps({
               {{ object[cell.objectKey] }}
             </div>
           </div>
+          <div class="table__td-select" v-else-if="cell.type === 'select'">
+            <select v-model="row[cell.cellValue]" @change="cell.callback(row)" :disabled="cell.disabledCondition(row)">
+              <option v-for="select in cell.selectList" :value="select.value">{{ select.name }}</option>
+            </select>
+          </div>
+          <div class="table__td-image" v-else-if="cell.type === 'image'">
+            <img width="75" :src="cell.cellSrc(row)" alt="row">
+          </div>
           <template v-else>
             {{ row[cell.cellValue] }}
           </template>
