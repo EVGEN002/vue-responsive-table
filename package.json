@@ -2,6 +2,8 @@
   "name": "@evgen002/vue-responsive-table",
   "private": false,
   "version": "1.0.2",
+  "license": "(ISC OR GPL-3.0)",
+  "keywords": ["vue", "vue 3", "font-end", "table", "responsive", "styleable"],
   "type": "module",
   "files": [
     "dist"

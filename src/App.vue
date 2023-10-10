@@ -99,23 +99,31 @@ const tableDataProps = [
         { name: 'Выдан', value: 'Выдан' },
         { name: 'Удален', value: 'Удален' },
       ],
-      disabledCondition: (payload) => payload['Склад'] !== 'Б.Марлинского д.64/1	',
+      // disabledCondition: (payload) => payload['Склад'] !== 'Б.Марлинского д.64/1	',
+      disabledCondition: () => false,
       callback: (payload) => { console.log('setStatus: ', payload) },
       type: 'select'
     },
   ];
 
 function handleClickRow(payload) {
-  return null
+  console.log('asdakjnadkjads')
 }
 </script>
 
 <template>
   <div>
     <vue-responsive-table
+      class="my-table"
       :rows="data.products"
       :data-props="tableDataProps"
       @onClickRow="handleClickRow"
     ></vue-responsive-table>
   </div>
 </template>
+
+<style scoped lang="sass">
+  .my-table
+    ::v-deep(tr)
+      cursor: pointer
+</style>

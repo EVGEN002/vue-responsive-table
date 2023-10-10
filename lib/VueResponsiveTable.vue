@@ -33,7 +33,7 @@ const props = defineProps({
             </div>
           </div>
           <div class="table__td-select" v-else-if="cell.type === 'select'">
-            <select v-model="row[cell.cellValue]" @change="cell.callback(row)" :disabled="cell.disabledCondition(row)">
+            <select v-model="row[cell.cellValue]" @click.stop @change="cell.callback(row)" :disabled="cell.disabledCondition(row)">
               <option v-for="select in cell.selectList" :value="select.value">{{ select.name }}</option>
             </select>
           </div>
